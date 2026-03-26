@@ -55,7 +55,7 @@ This system includes a real-time SOC graph that:
 
 ## Getting Started
 From root folder:
-npm run dev
+> npm run dev
 
 
 
