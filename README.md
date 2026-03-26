@@ -3,14 +3,49 @@
 A full-stack smart charging platform that manages EV charging sessions, schedules
 vehicles intelligently, and visualizes real-time charging behavior.
 
-### Currently published features:
-Smart Charging Scheduler
+## Currently published features:
+### Smart Charging Scheduler
 
 Automatically assigns vehicles to chargers based on:
 - Vehicle priority
 - Charger availability
 
-Real-Time Dashboard
+### Real-Time Dashboard
+Displays:
+- Active charging sessions
+- Vehicle State-of-Charge
+- Busy/idle chargers
+- Live SoC chart updating every 10s
+
+### Vehicle & Charger Management
+- Track current charge & battery capacity
+- Display charger status
+
+## Architecture Overview
+- Frontend: visualization + UI
+- Backend: scheduling logic + REST API
+- Database: persistent storage for vehicles, chargers, sessions
+## Technologies Used
+### Backend
+
+Technology
+Java 17
+Spring Boot
+JPA / Hibernate
+MySQL / PostgreSQL
+Lombok
+🎨
+ Frontend
+Tech
+Purpose
+Language
+REST API framework
+ORM & database mapping
+Database
+Boilerplate reduction
+Purpose
+
+### Frontend
 
 
 __Upcoming features currently in development:__
