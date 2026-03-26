@@ -28,22 +28,14 @@ Displays:
 ## Technologies Used
 ### Backend
 
-Technology
-Java 17
-Spring Boot
-JPA / Hibernate
-MySQL / PostgreSQL
-Lombok
-🎨
- Frontend
-Tech
-Purpose
-Language
-REST API framework
-ORM & database mapping
-Database
-Boilerplate reduction
-Purpose
+| Technology             | Purpose                |
+| ---------------------- | ---------------------- |
+| **Java 17**            | Language               |
+| **Spring Boot**        | REST API framework     |
+| **JPA / Hibernate**    | ORM & database mapping |
+| **MySQL / PostgreSQL** | Database               |
+| **Lombok**             | Boilerplate reduction  |
+
 
 ### Frontend
 
