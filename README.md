@@ -56,7 +56,7 @@ This system includes a real-time SOC graph that:
 ## Getting Started
 From root folder:
 > npm run dev
-> Frontend runs at: http://localhost:5173/
+Frontend runs at: http://localhost:5173/
 
 
 
