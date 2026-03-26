@@ -32,8 +32,7 @@ Displays:
 | ---------------------- | ---------------------- |
 | **Java 17**            | Language               |
 | **Spring Boot**        | REST API framework     |
-| **JPA / Hibernate**    | ORM & database mapping |
-| **MySQL / PostgreSQL** | Database               |
+| **MySQL**              | Database               |
 | **Lombok**             | Boilerplate reduction  |
 
 
