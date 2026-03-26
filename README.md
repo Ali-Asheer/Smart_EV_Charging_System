@@ -47,11 +47,11 @@ Displays:
 
 This system includes a real-time SOC graph that:
 
-Displays only currently charging vehicles
-Updates automatically every 10 seconds
-Shows each vehicle in a unique color
-Stores the last 6 datapoints per vehicle
-Simulates charge progression when backend lacks real-time updates
+- Displays only currently charging vehicles
+- Updates automatically every 10 seconds
+- Shows each vehicle in a unique color
+- Stores the last 6 datapoints per vehicle
+- Simulates charge progression when backend lacks real-time updates
 
 
 
