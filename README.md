@@ -30,13 +30,18 @@ Displays:
 
 | Technology             | Purpose                |
 | ---------------------- | ---------------------- |
-| **Java 17**            | Language               |
+| **Java 21**            | Language               |
 | **Spring Boot**        | REST API framework     |
 | **MySQL**              | Database               |
 | **Lombok**             | Boilerplate reduction  |
 
-
 ### Frontend
+| Tech                  | Purpose          |
+| --------------------- | ---------------- |
+| **React + Vite**      | Web application  |
+| **Tailwind CSS**      | Styling          |
+| **Fetch API**         | Communication    |
+
 
 
 __Upcoming features currently in development:__
