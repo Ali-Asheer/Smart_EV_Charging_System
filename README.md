@@ -1,11 +1,16 @@
 # Smart EV Charging System
 
-Hedgehog is a high-performant, concurrent peer-to-peer treechain (blockchain) network built on top of [Netty](https://netty.io/) and [Java NIO](https://docs.oracle.com/javase/8/docs/technotes/guides/io/index.html).
+A full-stack smart charging platform that manages EV charging sessions, schedules
+vehicles intelligently, and visualizes real-time charging behavior.
 
 __Currently published features:__
-- Gridnode sporks and configurable network properties
-- Peer to peer distriubution
-- REST interface
+Smart Charging Scheduler
+Automatically assigns vehicles to chargers based on:
+- Vehicle priority
+- Charger availability
+
+  Real-Time Dashboard
+
 
 __Upcoming features currently in development:__
 - Shard group and network storage (accesible via [Janus](https://github.com/unigrid-project/janus-java) and virtual desktop drives)
