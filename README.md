@@ -5,11 +5,12 @@ vehicles intelligently, and visualizes real-time charging behavior.
 
 ### Currently published features:
 Smart Charging Scheduler
+
 Automatically assigns vehicles to chargers based on:
 - Vehicle priority
 - Charger availability
 
-  Real-Time Dashboard
+Real-Time Dashboard
 
 
 __Upcoming features currently in development:__
