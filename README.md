@@ -3,7 +3,7 @@
 A full-stack smart charging platform that manages EV charging sessions, schedules
 vehicles intelligently, and visualizes real-time charging behavior.
 
-__Currently published features:__
+## Currently published features:
 Smart Charging Scheduler
 Automatically assigns vehicles to chargers based on:
 - Vehicle priority
