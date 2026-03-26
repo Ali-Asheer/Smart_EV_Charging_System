@@ -1,0 +1,32 @@
+package com.evgarage.smart_charging.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import com.evgarage.smart_charging.model.Vehicle;
+
+@Service
+public class ChargingOptimizerService {
+
+    private static final double GARAGE_POWER_LIMIT = 100;
+
+    public Map<Long, Double> calculatePower(List<Vehicle> vehicles) {
+
+        Map<Long, Double> allocation = new HashMap<>();
+
+        double powerPerCar = GARAGE_POWER_LIMIT / vehicles.size();
+
+        for (Vehicle v : vehicles) {
+
+            double energyNeeded =
+                v.getBatteryCapacity() - v.getCurrentCharge();
+
+            allocation.put(v.getId(), energyNeeded);
+        }
+
+        return allocation;
+    }
+}

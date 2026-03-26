@@ -1,0 +1,30 @@
+package com.evgarage.smart_charging.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.evgarage.smart_charging.model.Vehicle;
+import com.evgarage.smart_charging.repository.ChargerRepository;
+import com.evgarage.smart_charging.repository.VehicleRepository;
+
+@Service
+public class PriorityService {
+
+    private final VehicleRepository vehicleRepository;
+
+    public PriorityService(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+    }
+
+    public List<Vehicle> getVehiclesByPriority() {
+
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+
+        vehicles.sort((v1, v2) ->
+            Integer.compare(v2.getPriority(), v1.getPriority())
+        );
+
+        return vehicles;
+    }
+}

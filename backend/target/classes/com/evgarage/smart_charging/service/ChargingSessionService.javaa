@@ -1,0 +1,85 @@
+package com.evgarage.smart_charging.service;
+
+import com.evgarage.smart_charging.dto.SessionResponseDTO;
+import com.evgarage.smart_charging.model.Charger;
+import com.evgarage.smart_charging.model.ChargingSession;
+import com.evgarage.smart_charging.model.Vehicle;
+import com.evgarage.smart_charging.repository.ChargingSessionRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class ChargingSessionService {
+
+    private final ChargingSessionRepository repository;
+    private static final Logger logger = LoggerFactory.getLogger(ChargingSessionService.class);
+
+    public ChargingSessionService(ChargingSessionRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<SessionResponseDTO> getActiveSessions() {
+        return repository.findByActiveTrueOrderByPriorityAscStartTimeAsc()
+                .stream()
+                .map(s -> new SessionResponseDTO(
+                        s.getId(),
+                        s.getVehicle().getLicensePlate(),
+                        s.getCharger().getName(),
+                        s.getPriority(),
+                        s.getStartTime()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public ChargingSession startSession(Vehicle vehicle, Charger charger, int priority) {
+
+        if (repository.existsByChargerAndActiveTrue(charger)) {
+            throw new RuntimeException("Charger already in use");
+        }
+
+        ChargingSession session = new ChargingSession();
+        session.setVehicle(vehicle);
+        session.setCharger(charger);
+        session.setPriority(priority);
+
+        // Example: set a chargeRate value
+        int chargeRate = calculateChargeRate(vehicle, charger);
+        session.setChargeRate(chargeRate);
+
+        // Print chargeRate to terminal
+        logger.info("Starting session for vehicle {} on charger {} with chargeRate: {} kW",
+                vehicle.getLicensePlate(), charger.getName(), chargeRate);
+
+        session.setStartTime(java.time.LocalDateTime.now());
+        session.setActive(true);
+
+        return repository.save(session);
+    }
+
+    @Transactional
+    public ChargingSession endSession(Long sessionId) {
+        ChargingSession session = repository.findById(sessionId)
+                .orElseThrow(() -> new RuntimeException("Session not found"));
+
+        session.setActive(false);
+        session.setEndTime(java.time.LocalDateTime.now());
+
+        return repository.save(session);
+    }
+
+    public boolean isChargerInUse(Charger charger) {
+        return repository.existsByChargerAndActiveTrue(charger);
+    }
+
+    // Example calculation for chargeRate
+    private int calculateChargeRate(Vehicle vehicle, Charger charger) {
+        // Simple example: could be based on charger max power and vehicle battery
+        return Math.min(charger.getMaxPower(), vehicle.getMaxChargeRate());
+    }
+}
